@@ -60,10 +60,10 @@ public class MadLibs {
         System.out.println("Dear School Nurse:");
         System.out.println(word1 + " " + word2 + " will not be attending school ");
         System.out.println("today. He/she has come down with a case of " + word3 + " and has ");
-        System.out.println("horrible " + word4 + " and a/an" + word5 + " fever. We");
-        System.out.println("have made an appointment with the " + word6 + "Dr.");
+        System.out.println("horrible " + word4 + " and a/an " + word5 + " fever. We");
+        System.out.println("have made an appointment with the " + word6 + " Dr.");
         System.out.println(word7 + ", who studied for many years in " + word8);
-        System.out.println("and has " + word9 + "degrees in pediatrics. He will send you all the ");
+        System.out.println("and has " + word9 + " degrees in pediatrics. He will send you all the ");
         System.out.println("information you need. Thank you!");
         System.out.println("Sincerely");
         System.out.println("Mrs. " + word10);
@@ -133,9 +133,9 @@ public class MadLibs {
         System.out.println("");
 
         System.out.println("My \"Dream Man\" should, first of all be very " + word1 + " and ");
-        System.out.println(word2 + " . He should have a physique like " + word3 + ", a");
+        System.out.println(word2 + ". He should have a physique like " + word3 + ", a");
         System.out.println("profile like " + word4 + ", and the intelligence of a/an ");
-        System.out.println(word5 + ". He must be polite and must always remember to");
+        System.out.println(word5 + ". He must be polite and must always remember to ");
         System.out.println(word6 + " my " + word7 + ", to tip his ");
         System.out.println(word8 + " and to make my " + word9 + " when crossing the ");
         System.out.println("street. He should move " + word10 + ", have a/an ");
