@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SimpleGUICalculator extends JFrame implements ActionListener {
+public class SimpleGUICalculator implements ActionListener {
     JButton a, b, c, d, e;
     JTextField field1 = new JTextField("");
     JTextField field2 = new JTextField("");
