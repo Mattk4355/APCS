@@ -1,3 +1,6 @@
+// Matthew Krawczyk
+// Period 4 APCS
+// 10/04/16
 package com.Mattk4355;
 
 import java.util.Random;
