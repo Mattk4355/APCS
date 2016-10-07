@@ -23,6 +23,7 @@ public class MonteCarlo {
             Turn();
         }
 
+        System.out.println("Points Probability");
         System.out.println("0 " + (score0/turns));
         System.out.println("20 " + (score20/turns));
         System.out.println("21 " + (score21/turns));
@@ -41,7 +42,7 @@ public class MonteCarlo {
             switch (x){
                 case 1: score0 += 1;
                     return;
-                default: score = score + x;
+                default: score += x;
                     break;
             }
             if (score >= 20 && score <= 25){
