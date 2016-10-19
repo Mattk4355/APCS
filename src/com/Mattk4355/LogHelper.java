@@ -17,9 +17,18 @@ public class LogHelper {
         System.out.println(ANSI_CYAN + sdf.format(cal.getTime()) + " [DEBUG]: " + s + ANSI_RESET);
 
     }
+    public void debug(String var, boolean b){
+        Calendar cal = Calendar.getInstance();
+        System.out.println(ANSI_CYAN + sdf.format(cal.getTime()) + " [INFO]: boolean " + var + " is " + b + ANSI_RESET);
+
+    }
     public void info(String s){
         Calendar cal = Calendar.getInstance();
         System.out.println(ANSI_BLUE + sdf.format(cal.getTime()) + " [INFO]: " + s + ANSI_RESET);
+    }
+    public void info(String var, boolean b){
+        Calendar cal = Calendar.getInstance();
+        System.out.println(ANSI_BLUE + sdf.format(cal.getTime()) + " [INFO]: boolean " + var + " is " + b + ANSI_RESET);
     }
     public void warning(String s){
         Calendar cal = Calendar.getInstance();
