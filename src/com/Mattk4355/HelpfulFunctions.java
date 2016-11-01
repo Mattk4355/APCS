@@ -1,27 +1,13 @@
 //(C) Matthew Krawczyk
 package com.Mattk4355;
 
-import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class HelpfulFunctions {
-    private LogHelper logHelper = new LogHelper();
-
-    /*
-    * allows the opening of a file
-    */
-
-    public void openFile(String s){
-        try {
-            Desktop.getDesktop().open(new File(s));
-        }
-        catch (IOException e){
-            logHelper.fatal("Error while opening file");
-            e.printStackTrace();
-        }
-    }
+    LogHelper logHelper = new LogHelper();
 
     /*
     * takes a file location (string) and an ArrayList (String)
@@ -34,10 +20,8 @@ public class HelpfulFunctions {
             for (int i = 0; i < l.size(); i++) {
                 write.println(l.get(i));
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             logHelper.fatal("Error while writing to file.");
-            e.printStackTrace();
         }
     }
 
@@ -48,15 +32,14 @@ public class HelpfulFunctions {
     public ArrayList<String> ReadFromFile(String s) {
         ArrayList<String> x = new ArrayList<>();
         try {
-            Scanner input = new Scanner(new FileInputStream(s));
+            FileInputStream fis = new FileInputStream(s);
+            Scanner input = new Scanner(fis);
 
             while (input.hasNextLine()) {
                 x.add(input.nextLine());
             }
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             logHelper.fatal("Error while writing to file");
-            e.printStackTrace();
         }
         return x;
     }
@@ -67,11 +50,9 @@ public class HelpfulFunctions {
     public int MaxInt(int a, int b, int c) {
         if ((a >= b && b >= c) || (a >= c && c >= b)) {
             return a;
-        }
-        else if ((b >= a && a >= c) || (b >= c && c >= a)) {
+        } else if ((b >= a && a >= c) || (b >= c && c >= a)) {
             return b;
-        }
-        else { //if ((c >= b && b >= a) || (c >= a && a >= b))
+        } else { //if ((c >= b && b >= a) || (c >= a && a >= b))
             return c;
         }
     }
@@ -79,7 +60,7 @@ public class HelpfulFunctions {
     private long startTime;
     private long stopTime;
 
-    private static final double NANOS_PER_SEC = 100000000.0;
+    public static final double NANOS_PER_SEC = 100000000.0;
 
     public void start() {
         startTime = System.nanoTime();
