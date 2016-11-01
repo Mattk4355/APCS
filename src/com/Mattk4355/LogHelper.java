@@ -1,4 +1,5 @@
 //(C) Matthew Krawczyk
+//LogHelper v1.1
 package com.Mattk4355;
 
 import java.text.SimpleDateFormat;
