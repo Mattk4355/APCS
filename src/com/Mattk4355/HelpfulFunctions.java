@@ -4,10 +4,9 @@ package com.Mattk4355;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
 public class HelpfulFunctions {
-    LogHelper logHelper = new LogHelper();
+    private LogHelper logHelper = new LogHelper();
 
     /*
     * takes a file location (string) and an ArrayList (String)
@@ -60,7 +59,7 @@ public class HelpfulFunctions {
     private long startTime;
     private long stopTime;
 
-    public static final double NANOS_PER_SEC = 100000000.0;
+    private static final double NANOS_PER_SEC = 100000000.0;
 
     public void start() {
         startTime = System.nanoTime();
