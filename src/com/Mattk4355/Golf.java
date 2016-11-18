@@ -75,9 +75,6 @@ public class Golf {
         tempHole9Score = input.nextInt();
         golfer2 = new Golfer("Player2", tempHole1Score, tempHole2Score, tempHole3Score, tempHole4Score, tempHole5Score, tempHole6Score, tempHole7Score, tempHole8Score, tempHole9Score);
 
-        golfer1 = new Golfer("player1", 2, 5, 6, 3, 3, 4, 5, 3, 4);
-        golfer2 = new Golfer("player2", 3, 5, 6, 4, 4, 5, 6, 3, 5);
-
         boolean player1won = false;
         int totalPar = hole1par + hole2par + hole3par + hole4par + hole5par + hole6par + hole7par + hole8par + hole9par;
 
