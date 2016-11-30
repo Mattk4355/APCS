@@ -7,7 +7,7 @@ public class Fraction {
     private int numerator;
     private int denominator;
 
-    Fraction(int Numerator, int Denominator){
+    public Fraction(int Numerator, int Denominator){
         numerator = Numerator;
         denominator = Denominator;
     }
