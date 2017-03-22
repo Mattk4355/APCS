@@ -20,15 +20,13 @@ public final class Division {
         printDivide(rem * 10, den, op + 1, numTimes);
     }
 
-    public static String stringDivide(final int num, final int den){
+    public synchronized static String stringDivide(final int num, final int den){
         return stringDivide(num, den, 10);
     }
-
-    public static String stringDivide(final int num, final int den, final int numDecimals){
+    public synchronized static String stringDivide(final int num, final int den, final int numDecimals){
         return stringDivide("", num, den, 0, numDecimals + 1);
     }
-
-    public static String stringDivide(String in, final int num, final int den, final int op, final int numTimes) {
+    private static String stringDivide(String in, final int num, final int den, final int op, final int numTimes) {
         if (numTimes == op) return in;
         if (op > numTimes) throw new IllegalArgumentException("Illegal operation number: " + op);
         int rem = num % den;

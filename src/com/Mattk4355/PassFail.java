@@ -7,7 +7,7 @@ public class PassFail {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Enter AP Test Score: ");
+        System.out.println("Enter AP Test0 Score: ");
         int score = input.nextInt();
 
         System.out.println("Passed: " + checkPassed(score));
