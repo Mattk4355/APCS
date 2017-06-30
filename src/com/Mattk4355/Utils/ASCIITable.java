@@ -7,7 +7,7 @@ public class ASCIITable {
     private static final char[] CHAR_VALUES;
     private static final char[] TRIMMED_CHAR_VALUES;
 
-    public static int TABLE_SIZE = 128;
+    public static final int TABLE_SIZE = 128;
 
     /**
      * @return the ASCII int value of {@code c}
@@ -21,7 +21,7 @@ public class ASCIITable {
      * @return return the character value of {@code ascii}
      *
      * @throws IllegalArgumentException id {@code ascii}
-     *         is less than 0 or greater than 127
+     *         is less than 0 or greater than TABLE_SIZE - 1
      */
     public static char toChar(int ascii){
         if (ascii < 0 || ascii > TABLE_SIZE - 1) throw new IllegalArgumentException("Not a valid ascii integer: " + ascii);
