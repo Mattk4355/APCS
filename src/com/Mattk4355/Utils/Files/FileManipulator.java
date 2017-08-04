@@ -1,6 +1,6 @@
 package com.Mattk4355.Utils.Files;
 
-import TestArea.Program;
+import TestArea.Stuff.Program;
 import com.Mattk4355.Utils.Utils;
 
 import java.io.*;

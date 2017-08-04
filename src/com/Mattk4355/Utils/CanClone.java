@@ -10,7 +10,7 @@ public interface CanClone<T> extends Cloneable{
     /**
      * @return a clone of the given object.
      *
-     * @throws CloneNotAllowedException if the canClone() method
+     * @throws CloneNotAllowedException if the canClone() method returns {@code false}
      */
     T clone() throws CloneNotAllowedException;
 

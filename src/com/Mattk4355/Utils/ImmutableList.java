@@ -31,77 +31,77 @@ public class ImmutableList<T> extends ArrayList<T> {
     }
 
     @Override
-    public Object[] toArray() {
+    public final Object[] toArray() {
         throw new UnsupportedOperationException("toArray");
     }
 
     @Override
-    public <S> S[] toArray(S[] s) {
+    public final <S> S[] toArray(S[] s) {
         throw new UnsupportedOperationException("toArray");
     }
 
     @Override
-    public T remove(int index) {
+    public final T remove(int index) {
         throw new UnsupportedOperationException("remove");
     }
 
     @Override
-    public boolean remove(Object o) {
+    public final boolean remove(Object o) {
         throw new UnsupportedOperationException("remove");
     }
 
     @Override
-    public void clear() {
+    public final void clear() {
         throw new UnsupportedOperationException("clear");
     }
 
     @Override
-    public boolean removeAll(Collection<?> c) {
+    public final boolean removeAll(Collection<?> c) {
         throw new UnsupportedOperationException("removeAll");
     }
 
     @Override
-    public boolean retainAll(Collection<?> c) {
+    public final boolean retainAll(Collection<?> c) {
         throw new UnsupportedOperationException("retainAll");
     }
 
     @Override
-    public List<T> subList(int fromIndex, int toIndex) {
+    public final List<T> subList(int fromIndex, int toIndex) {
         throw new UnsupportedOperationException("subList");
     }
 
     @Override
-    public void forEach(Consumer<? super T> action) {
+    public final void forEach(Consumer<? super T> action) {
         throw new UnsupportedOperationException("forEach");
     }
 
     @Override
-    public boolean removeIf(Predicate<? super T> filter) {
+    public final boolean removeIf(Predicate<? super T> filter) {
         throw new UnsupportedOperationException("removeIf");
     }
 
     @Override
-    public T set(int index, T element) {
+    public final T set(int index, T element) {
         throw new UnsupportedOperationException("set");
     }
 
     @Override
-    public boolean add(T t) {
+    public final boolean add(T t) {
         throw new UnsupportedOperationException("add");
     }
 
     @Override
-    public void add(int index, T element) {
+    public final void add(int index, T element) {
         throw new UnsupportedOperationException("add");
     }
 
     @Override
-    public boolean addAll(Collection<? extends T> c) {
+    public final boolean addAll(Collection<? extends T> c) {
         throw new UnsupportedOperationException("addAll");
     }
 
     @Override
-    public void sort(Comparator<? super T> c) {
+    public final void sort(Comparator<? super T> c) {
         throw new UnsupportedOperationException("sort");
     }
 
@@ -111,7 +111,7 @@ public class ImmutableList<T> extends ArrayList<T> {
     }
 
     @Override
-    public void replaceAll(UnaryOperator<T> operator) {
+    public final void replaceAll(UnaryOperator<T> operator) {
         throw new UnsupportedOperationException("replaceAll");
     }
 }
