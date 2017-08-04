@@ -5,6 +5,8 @@ import com.Mattk4355.Utils.Files.FileManipulator;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -4594,6 +4596,117 @@ public final class Utils {
         @Override
         public final int hashCode(){
             return Arrays.deepHashCode(logEntries.toArray());
+        }
+    }
+
+    public static final class ReflectionHelper{
+        private ReflectionHelper(){}
+
+        private static final boolean sunReflectionSupported;
+        private static final Method getCallerClass;
+        private static final Object lock;
+
+        static {
+            Method getCallerClass0;
+            try{
+                final Class<?> reflect = Class.forName("sun.reflect.Reflection");
+                getCallerClass0 = reflect.getDeclaredMethod("getCallerClass", int.class);
+            }
+            catch (ClassNotFoundException | NoSuchMethodException x){
+                getCallerClass0 = null;
+            }
+            sunReflectionSupported = getCallerClass0 != null;
+            getCallerClass = getCallerClass0;
+            lock = new Object();
+        }
+
+        /**
+         * @return the caller class at the index of {@code index} on the list
+         *
+         * @implNote The index for the caller class of the method/constructor that this method
+         *           was called from is {@code 2}
+         */
+        public static Class<?> getCallerClass(final int index){
+            if (!reflectionSupported()) throw new IllegalStateException("sun.reflect.Reflection.getCallerClass() is not supported");
+            synchronized (lock){
+                if (index < 0) throw new IllegalArgumentException(Integer.toString(index));
+                try {
+                    return (Class<?>) getCallerClass.invoke(null, index + 1);
+                }
+                catch (final IllegalAccessException | InvocationTargetException x){
+                    throw new Error("Error in ReflectionUtil.getCallerClass(int)", x);
+                }
+
+            }
+        }
+
+        /**
+         * @return The caller class of the method/constructor that this method was called from
+         */
+        public static Class<?> getCallerClass(){
+            return getCallerClass(3);
+        }
+
+        public static Class<?>[] getCallerTrace(){
+            if (!reflectionSupported()) throw new IllegalStateException("sun.reflect.Reflection.getCallerClass() is not supported");
+            synchronized (lock){
+                ArrayList<Class<?>> list = new ArrayList<>();
+                try{
+                    int i = 0;
+                    Class<?> clz = (Class<?>) getCallerClass.invoke(null, i);
+                    while (clz != null){
+                        list.add(clz);
+                        clz = (Class<?>) getCallerClass.invoke(null, ++i);
+                    }
+
+                }
+                catch (IllegalAccessException | InvocationTargetException x){
+                    System.out.println("Exception navigating through frames");
+                }
+                return list.toArray(new Class<?>[list.size()]);
+            }
+        }
+
+        public static String[] getCallerTraceString(){
+            if (!reflectionSupported()) throw new IllegalStateException("sun.reflect.Reflection.getCallerClass() is not supported");
+            synchronized (lock){
+                ArrayList<String> list = new ArrayList<>();
+                try{
+                    int i = 0;
+                    Class<?> clz = (Class<?>) getCallerClass.invoke(null, i);
+                    while (clz != null){
+                        list.add("Caller class at index[" + i + "]->" + clz.getName());
+                        clz = (Class<?>) getCallerClass.invoke(null, ++i);
+                    }
+
+                }
+                catch (IllegalAccessException | InvocationTargetException x){
+                    System.out.println("Exception navigating through frames");
+                }
+                return list.toArray(new String[list.size()]);
+            }
+        }
+
+        public static void printCallerTrace(){
+            if (!reflectionSupported()) throw new IllegalStateException("sun.reflect.Reflection.getCallerClass() is not supported");
+            synchronized (lock){
+                try{
+                    int i = 0;
+                    Class<?> clz = (Class<?>) getCallerClass.invoke(null, i);
+                    while (clz != null){
+                        System.out.println("Caller class at index[" + i + "]->" + clz.getName());
+                        clz = (Class<?>) getCallerClass.invoke(null, ++i);
+                    }
+
+                }
+                catch (IllegalAccessException | InvocationTargetException x){
+                    System.out.println("Exception navigating through frames");
+                }
+            }
+        }
+
+        public static boolean reflectionSupported(){
+            return sunReflectionSupported;
         }
     }
 }
