@@ -30,6 +30,7 @@ public final class Utils {
     /**
      * Class that has methods to deal with Objects
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static final class Objects{
         public static final String NULL_DEFAULT = "null";
         public static final String DEFAULT_NULL_MESSAGE = "Argument cannot be null.";
@@ -292,6 +293,7 @@ public final class Utils {
     /**
      * Class that has methods to deal with Arrays
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static final class Arrays {
         private Arrays() {
             throw new InternalError("No instancing this class!");
@@ -2152,6 +2154,7 @@ public final class Utils {
     /**
      * Class that deals with Array sorting
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static final class Sorts {
         private static final class SortType{
             private SortType(final String type){}
@@ -4634,7 +4637,7 @@ public final class Utils {
                     return (Class<?>) getCallerClass.invoke(null, index + 1);
                 }
                 catch (final IllegalAccessException | InvocationTargetException x){
-                    throw new Error("Error in ReflectionUtil.getCallerClass(int)", x);
+                    throw new IllegalStateException("Error in ReflectionUtil.getCallerClass(int)", x);
                 }
 
             }
