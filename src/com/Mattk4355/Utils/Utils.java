@@ -4637,7 +4637,7 @@ public final class Utils {
                     return (Class<?>) getCallerClass.invoke(null, index + 1);
                 }
                 catch (final IllegalAccessException | InvocationTargetException x){
-                    throw new InternalError("Error in ReflectionUtil.getCallerClass(int)", x);
+                    throw new ReflectionError("Error in ReflectionUtil.getCallerClass(int)", x);
                 }
             }
         }
@@ -4662,7 +4662,7 @@ public final class Utils {
                     }
                 }
                 catch (IllegalAccessException | InvocationTargetException x){
-                    throw new InternalError("Error in ReflectionUtil.getCallerTrace()", x);
+                    throw new ReflectionError("Error in ReflectionUtil.getCallerTrace()", x);
                 }
                 return list.toArray(new Class<?>[list.size()]);
             }
@@ -4681,7 +4681,7 @@ public final class Utils {
                     }
                 }
                 catch (IllegalAccessException | InvocationTargetException x){
-                    throw new InternalError("Error in ReflectionUtil.getCallerTraceString()", x);
+                    throw new ReflectionError("Error in ReflectionUtil.getCallerTraceString()", x);
                 }
                 return list.toArray(new String[list.size()]);
             }
@@ -4699,13 +4699,23 @@ public final class Utils {
                     }
                 }
                 catch (IllegalAccessException | InvocationTargetException x){
-                    throw new InternalError("Error in ReflectionUtil.printCallerTrace()", x);
+                    throw new ReflectionError("Error in ReflectionUtil.printCallerTrace()", x);
                 }
             }
         }
 
         public static boolean reflectionSupported(){
             return sunReflectionSupported;
+        }
+
+        /**
+         * An error that indicates that an error has occurred in one of the methods of
+         * {@linkplain ReflectionHelper}
+         */
+        public static final class ReflectionError extends Error{
+            private ReflectionError(String message, Throwable cause){
+                super(message, cause);
+            }
         }
     }
 }
