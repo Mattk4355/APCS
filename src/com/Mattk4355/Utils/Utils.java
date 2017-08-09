@@ -4637,9 +4637,8 @@ public final class Utils {
                     return (Class<?>) getCallerClass.invoke(null, index + 1);
                 }
                 catch (final IllegalAccessException | InvocationTargetException x){
-                    throw new IllegalStateException("Error in ReflectionUtil.getCallerClass(int)", x);
+                    throw new InternalError("Error in ReflectionUtil.getCallerClass(int)", x);
                 }
-
             }
         }
 
@@ -4661,10 +4660,9 @@ public final class Utils {
                         list.add(clz);
                         clz = (Class<?>) getCallerClass.invoke(null, ++i);
                     }
-
                 }
                 catch (IllegalAccessException | InvocationTargetException x){
-                    System.out.println("Exception navigating through frames");
+                    throw new InternalError("Error in ReflectionUtil.getCallerTrace()", x);
                 }
                 return list.toArray(new Class<?>[list.size()]);
             }
@@ -4681,10 +4679,9 @@ public final class Utils {
                         list.add("Caller class at index[" + i + "]->" + clz.getName());
                         clz = (Class<?>) getCallerClass.invoke(null, ++i);
                     }
-
                 }
                 catch (IllegalAccessException | InvocationTargetException x){
-                    System.out.println("Exception navigating through frames");
+                    throw new InternalError("Error in ReflectionUtil.getCallerTraceString()", x);
                 }
                 return list.toArray(new String[list.size()]);
             }
@@ -4700,10 +4697,9 @@ public final class Utils {
                         System.out.println("Caller class at index[" + i + "]->" + clz.getName());
                         clz = (Class<?>) getCallerClass.invoke(null, ++i);
                     }
-
                 }
                 catch (IllegalAccessException | InvocationTargetException x){
-                    System.out.println("Exception navigating through frames");
+                    throw new InternalError("Error in ReflectionUtil.printCallerTrace()", x);
                 }
             }
         }
